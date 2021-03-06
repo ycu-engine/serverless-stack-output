@@ -30,6 +30,9 @@
     "stack",
     "output"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "tomlify-j0.4": "^2.0.0",
     "yamljs": "^0.3.0"
