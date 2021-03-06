@@ -4,6 +4,7 @@
   "license": "MIT",
   "author": "Sebastian Müller <mail@sbstjn.com>",
   "main": "dist",
+  "version": "1.0.0",
   "scripts": {
     "clean": "rimraf dist",
     "test": "jest",
@@ -15,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbstjn/serverless-stack-output.git"
+    "url": "git+https://github.com/ycu-engine/serverless-stack-output.git"
   },
   "bugs": {
-    "url": "https://github.com/sbstjn/serverless-stack-output/issues"
+    "url": "https://github.com/ycu-engine/serverless-stack-output/issues"
   },
-  "homepage": "https://github.com/sbstjn/serverless-stack-output#readme",
+  "homepage": "https://github.com/ycu-engine/serverless-stack-output#readme",
   "keywords": [
     "serverless",
     "plugin",

@@ -36,7 +36,7 @@ custom:
 Based on the configuration above the plugin will search for a file `scripts/output.js` with the following content:
 
 ```js
-function handler (data, serverless, options) {
+function handler(data, serverless, options) {
   console.log('Received Stack Output', data)
 }
 
@@ -98,7 +98,7 @@ resources:
       Properties:
         QueueName: example-queue
     ExampleUser:
-      Type: "AWS::IAM::User"
+      Type: 'AWS::IAM::User'
       Properties:
         UserName: example-user
         Policies:
@@ -106,11 +106,21 @@ resources:
             PolicyDocument:
               Version: '2012-10-17'
               Statement:
-                - Effect: "Allow"
+                - Effect: 'Allow'
                   Action:
                     - sqs:SendMessage
                   Resource:
-                    - {"Fn::Join": [":", ["arn:aws:sqs:*", {"Ref": "AWS::AccountId"}, "example-queue"]]}
+                    - {
+                        'Fn::Join':
+                          [
+                            ':',
+                            [
+                              'arn:aws:sqs:*',
+                              { 'Ref': 'AWS::AccountId' },
+                              'example-queue'
+                            ]
+                          ]
+                      }
     ExampleUserKey:
       Type: AWS::IAM::AccessKey
       Properties:
@@ -121,7 +131,7 @@ resources:
       Value:
         Ref: ExampleUserKey
     ExampleUserSecret:
-      Value: {"Fn::GetAtt": ["ExampleUserKey", "SecretAccessKey"]}
+      Value: { 'Fn::GetAtt': ['ExampleUserKey', 'SecretAccessKey'] }
     ExampleStaticValue:
       Value: example-static-value
 ```
@@ -161,4 +171,15 @@ ServerlessDeploymentBucketName: sls-stack-output-example-serverlessdeploymentbuc
   "ServiceEndpoint": "https://APIGatewayID.execute-api.us-east-1.amazonaws.com/dev",
   "ServerlessDeploymentBucketName": "sls-stack-output-example-serverlessdeploymentbuck-BucketID"
 }
+```
+
+#### ENV
+
+```env
+ExampleUserSecret=YourUserSecretKey
+ExampleUserKey=YourUserAccessKey
+ExampleLambdaFunctionQualifiedArn=arn:aws:lambda:us-east-1:AccountID:function:sls-stack-output-example-dev-example:9
+ExampleStaticValue=example-static-value
+ServiceEndpoint=https://APIGatewayID.execute-api.us-east-1.amazonaws.com/dev
+ServerlessDeploymentBucketName=sls-stack-output-example-serverlessdeploymentbuck-BucketID
 ```
