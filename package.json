@@ -1,5 +1,5 @@
 {
-  "name": "serverless-stack-output",
+  "name": "@ycu-engine/serverless-stack-output",
   "description": "Serverless plugin to process AWS CloudFormation Stack Output",
   "license": "MIT",
   "author": "Sebastian Müller <mail@sbstjn.com>",
